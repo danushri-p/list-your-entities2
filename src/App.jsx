@@ -1,11 +1,9 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import PostCard from './components/postcard';
 
 function App() {
-
-  const initialPosts = [
+  const posts = [
     {
       id: 1,
       profileImage: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg',
@@ -30,10 +28,15 @@ function App() {
   ];
 
   return (
-    <>
-      
-    </>
-  )
+    <div>
+      <h1>Social Media Feed</h1>
+      <div>
+        {posts.map((post) => (
+          <PostCard key={post.id} post={post} />
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
